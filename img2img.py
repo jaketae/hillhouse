@@ -2,7 +2,7 @@ import argparse
 import os
 
 import torch
-from diffusers import StableDiffusionImg2ImgPipeline
+from diffusers import AutoPipelineForImage2Image
 from PIL import Image
 
 from utils import set_seed
@@ -14,17 +14,17 @@ def parse_args():
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--model", type=str, default="runwayml/stable-diffusion-v1-5")
     parser.add_argument("--dtype", type=str, default="float16")
-    parser.add_argument("--image_path", type=str, default="assets/hillhouse.jpg")
+    parser.add_argument("--image_path", type=str, default="assets/input/high_sketch2.jpg")
     parser.add_argument("--prompt", type=str, default="A photograph")
     parser.add_argument("--strength", type=float, default=0.2)
-    parser.add_argument("--guidance_scale", type=float, default=3)
+    parser.add_argument("--guidance", type=float, default=3)
     args = parser.parse_args()
     return args
 
 
 def main(args):
     set_seed(args.seed)
-    pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
+    pipe = AutoPipelineForImage2Image.from_pretrained(
         args.model,
         torch_dtype=getattr(torch, args.dtype),
     )
@@ -34,14 +34,15 @@ def main(args):
         prompt=args.prompt,
         image=init_image,
         strength=args.strength,
-        guidance_scale=args.guidance_scale,
+        guidance_scale=args.guidance,
     ).images
-    image_title = os.path.split(args.image_path)[-2]
+    image_title = os.path.split(args.image_path)[-1]
+    os.makedirs(os.path.join("assets", "output"), exist_ok=True)
     images[0].save(
         os.path.join(
             "assets",
-            "outputs",
-            f"{image_title}_{args.prompt}_{args.strength}_{args.guidance_scale}.png",
+            "output",
+            f"{image_title}_{args.prompt}_{args.strength}_{args.guidance}.png",
         )
     )
 
