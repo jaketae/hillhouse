@@ -4,7 +4,7 @@ This repository contains code for Reimagining Hillhouse. This work was completed
 
 ## Abstract
 
-> Lorem ipsum dolor sit amet. Et porro dolor a modi necessitatibus vel ipsa facere cum error quasi et rerum soluta et esse deserunt et suscipit odit. Aut voluptates fuga aut cupiditate suscipit eum tenetur architecto sed blanditiis commodi et velit magni eum culpa saepe. Sit doloribus sint et enim voluptatum vel consequuntur tempora sed fugit consequatur est sint iure. In assumenda beatae ut minima recusandae vel earum rerum est dolorum accusamus qui praesentium ratione qui excepturi temporibus sed dicta quod? Ex corrupti autem et quibusdam quod ex error odit est molestiae galisum. Et quia dolorum est eveniet voluptatem aut neque sapiente. Eos unde voluptates eos facere repudiandae et dicta explicabo est magnam voluptatem qui dolorum voluptatibus. Sed enim officia vel aperiam ratione hic aperiam aliquid id nobis ducimus.
+> Hillhouse Avenue is home to the Department of Applied Science and Engineering at Yale. Attached to the university's recent announcement to rebuild lower Hillhouse Avenue, the school provided a digital rendering of their flagship building (a center for engineering). Our project aims to contribute to this image in two-fold: (1) add more context to the new campus by connecting neighboring buildings, and (2) transform the image into a more realistic style. To achieve these two goals, our project explores two different methods of image stitching, followed by implementing stable diffusion model for the purpose of image stylization.
 
 ## Quickstart
 
@@ -23,15 +23,23 @@ $ pip install -U pip wheel # update pip
 $ pip install -r requirements.txt
 ```
 
-3. Run image-to-image stylization on the combined Hillhouse image.
+3. Perform image stitching on the image of Hillhouse and the music library.
 
 ```
-CUDA_VISIBLE_DEVICES=0 python img2img.py
+$ python homography.py
+```
+
+4. Run image-to-image stylization on the combined Hillhouse image.
+
+```
+$ CUDA_VISIBLE_DEVICES=0 python img2img.py
 ```
 
 ## Homography
 
-TODO.
+To stitch the image of Hillhouse and the music library, run [`homography.py`](homography.py). This should produce the following image in [`assets/output/stitched.png`](assets/output/stitched.png).
+
+<img src="assets/output/stitched.png">
 
 ## Stylization
 
@@ -52,6 +60,12 @@ optional arguments:
   --prompt PROMPT
   --strength STRENGTH
   --guidance GUIDANCE
+```
+
+To run a grid search over the guidance and strength parameters on different inputs, run
+
+```
+$ CUDA_VISIBLE_DEVICES=0 sh img2img.sh
 ```
 
 ## License

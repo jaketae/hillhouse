@@ -94,10 +94,11 @@ def main():
     image_combined = image1to0_weights * image1to0 + image0_extended_weights * image0_extended
 
     # save result
+    os.makedirs(os.path.join("assets", "output"), exist_ok=True)
     config_plot()
     plt.imshow(image_combined)
     plt.tight_layout()
-    plt.savefig(os.path.join("assets", "input", "stitched.png"), bbox_inches="tight", dpi=200)
+    plt.savefig(os.path.join("assets", "output", "stitched.png"), bbox_inches="tight", dpi=200)
 
 
 if __name__ == "__main__":

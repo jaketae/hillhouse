@@ -17,6 +17,11 @@ def set_seed(seed):
     torch.backends.cudnn.benchmark = True
 
 
+def flatten_model_name(model_name):
+    tokens = model_name.split("/")
+    return "-".join(tokens)
+
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--seed", type=int, default=42)
@@ -45,13 +50,16 @@ def main(args):
         strength=args.strength,
         guidance_scale=args.guidance,
     ).images
-    image_title = os.path.split(args.image_path)[-1]
-    os.makedirs(os.path.join("assets", "output"), exist_ok=True)
+    image_title = os.path.split(args.image_path)[-1].split(".")[0]
+    model_name = flatten_model_name(args.model)
+    os.makedirs(os.path.join("assets", "output", model_name, args.prompt), exist_ok=True)
     images[0].save(
         os.path.join(
             "assets",
             "output",
-            f"{image_title}_{args.prompt}_{args.strength}_{args.guidance}_{args.model.split('/')[-1]}.png",
+            model_name,
+            args.prompt,
+            f"{image_title}_{args.strength}_{args.guidance}.png",
         )
     )
 
