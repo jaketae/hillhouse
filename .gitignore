@@ -1,5 +1,7 @@
 # custom
-assets/
+**/.DS_Store
+assets/output/runwayml-stable-diffusion-v1-5
+assets/output/stabilityai-stable-diffusion-xl-base-1.0
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
