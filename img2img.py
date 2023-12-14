@@ -1,11 +1,20 @@
 import argparse
 import os
+import random
 
+import numpy as np
 import torch
 from diffusers import AutoPipelineForImage2Image
 from PIL import Image
 
-from utils import set_seed
+
+def set_seed(seed):
+    random.seed(seed)
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = True
 
 
 def parse_args():
