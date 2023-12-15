@@ -26,12 +26,12 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--device", type=str, default="cuda")
-    parser.add_argument("--model", type=str, default="stabilityai/stable-diffusion-xl-base-1.0")
+    parser.add_argument("--model", type=str, default="runwayml/stable-diffusion-v1-5")
     parser.add_argument("--dtype", type=str, default="float16")
     parser.add_argument("--image_path", type=str, default="assets/input/high_sketch2.jpg")
     parser.add_argument("--prompt", type=str, default="A photograph")
-    parser.add_argument("--strength", type=float, default=0.2)
-    parser.add_argument("--guidance", type=float, default=3)
+    parser.add_argument("--strength", type=float, default=0.4)
+    parser.add_argument("--guidance", type=float, default=4)
     args = parser.parse_args()
     return args
 
