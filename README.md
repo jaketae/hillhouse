@@ -13,7 +13,7 @@ This project was developed and tested on an Ubuntu 20.04.5 LTS server with NVIDI
 1. Clone this repository.
 
 ```
-$ git clone https://github.com/nicoleytlam/hillhouse.git
+$ git clone https://github.com/jaketae/hillhouse.git
 ```
 
 2. Create a Python virtual environment and install package requirements. Depending on the local platform, you may have to adjust package versions (e.g., PyTorch) as appropriate.
