@@ -8,13 +8,15 @@ This repository contains code for Reimagining Hillhouse. This work was completed
 
 ## Quickstart
 
+This project was developed and tested on an Ubuntu Linux server with NVIDIA RTX 3090 GPUs on CUDA 11.7, using Python 3.8.17.
+
 1. Clone this repository.
 
 ```
 $ git clone https://github.com/nicoleytlam/hillhouse.git
 ```
 
-2. Create a Python virtual environment and install package requirements.
+2. Create a Python virtual environment and install package requirements. Depending on the local platform, you may have to adjust package versions (e.g., PyTorch) as appropriate.
 
 ```
 $ cd hillhouse
@@ -23,7 +25,7 @@ $ pip install -U pip wheel # update pip
 $ pip install -r requirements.txt
 ```
 
-3. Perform image stitching on the image of Hillhouse and the music library.
+3. Perform image stitching on the image of Hillhouse and the music building.
 
 ```
 $ python homography.py
