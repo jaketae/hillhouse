@@ -37,6 +37,8 @@ $ python homography.py
 $ CUDA_VISIBLE_DEVICES=0 python img2img.py
 ```
 
+All generated results (stitching and image stylization) are be saved in `assets/output`.
+
 ## Homography
 
 To stitch the image of Hillhouse and the music library, run [`homography.py`](homography.py). This should produce the following image in [`assets/output/stitched.png`](assets/output/stitched.png).
