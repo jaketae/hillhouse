@@ -8,7 +8,7 @@ This repository contains code for Reimagining Hillhouse. This work was completed
 
 ## Quickstart
 
-This project was developed and tested on an Ubuntu 20.04.5 LTS server with NVIDIA RTX 3090 GPUs on CUDA 11.7, using Python 3.8.17.
+This project was developed and tested on an Ubuntu 20.04.5 LTS server with NVIDIA RTX 3090 GPUs on CUDA 11.7, using Python 3.8.17. A stand-alone Google Colab notebook can also be found [here](https://colab.research.google.com/drive/1Df9S66SnEF75k3q-T2YVneK28tKOwsHE?usp=sharing).
 
 1. Clone this repository.
 
