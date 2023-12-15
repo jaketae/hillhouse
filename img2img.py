@@ -28,7 +28,7 @@ def parse_args():
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--model", type=str, default="runwayml/stable-diffusion-v1-5")
     parser.add_argument("--dtype", type=str, default="float16")
-    parser.add_argument("--image_path", type=str, default="assets/input/high_sketch2.jpg")
+    parser.add_argument("--image_path", type=str, default="assets/input/high_sketch1.jpg")
     parser.add_argument("--prompt", type=str, default="A photograph")
     parser.add_argument("--strength", type=float, default=0.4)
     parser.add_argument("--guidance", type=float, default=4)
